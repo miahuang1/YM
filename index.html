@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>圆满 · 林高远 & 王曼昱 主题主页</title>
+
+<style>
+:root{
+  --bg:#ffd4dc;
+  --bg-light:#ffe3ea;
+  --card:#fff7f8;
+  --nav:#ff8fa3;
+  --nav-hover:#ff748d;
+  --text:#4a1e2c;
+  --muted:#8a485d;
+  --accent:#ff4b6b;
+}
+
+/* 全局 */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+.page{
+  max-width:1080px;
+  margin:0 auto;
+  background:var(--bg-light);
+  min-height:100vh;
+}
+
+/* 顶部：圆满横幅，两图拼接 */
+.hero{
+  background:linear-gradient(120deg,#ff9fb2,#ffc7d2);
+  padding:22px 32px 26px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  color:#fff;
+}
+.hero-left{
+  flex:1 1 260px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:190px;
+}
+.hero-title{
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:8px;
+  text-shadow:0 2px 6px rgba(0,0,0,0.25);
+}
+.hero-sub{
+  font-size:14px;
+  opacity:0.9;
+}
+.hero-tags{
+  margin-top:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  font-size:11px;
+}
+.hero-tag{
+  padding:4px 8px;
+  border-radius:999px;
+  background:rgba(0,0,0,0.18);
+}
+
+.hero-right{
+  flex:1 1 260px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  min-height:190px;
+}
+.hero-right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+}
+.hero-right img:first-child{
+  border-radius:14px 0 0 14px;
+}
+.hero-right img:last-child{
+  border-radius:0 14px 14px 0;
+}
+
+/* 导航栏 */
+.navbar{
+  background:var(--nav);
+}
+.nav-inner{
+  max-width:1080px;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+}
+.nav-inner ul{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+}
+.nav-inner li a{
+  display:block;
+  padding:10px 20px;
+  font-size:14px;
+  text-decoration:none;
+  color:#fff;
+  transition:0.2s;
+}
+.nav-inner li a:hover{
+  background:var(--nav-hover);
+}
+
+/* 主体 */
+main{
+  padding:26px 32px 40px;
+}
+@media(max-width:720px){
+  main{padding:20px 16px 32px;}
+}
+
+/* 通用 section */
+.section{
+  margin-bottom:30px;
+  background:var(--card);
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  padding:20px 22px;
+}
+.section-title{
+  font-size:20px;
+  margin-bottom:12px;
+  border-left:4px solid var(--accent);
+  padding-left:8px;
+}
+.section-sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+/* 圆满介绍：左简介 + 右两人特点 */
+.flex-intro{
+  display:grid;
+  grid-template-columns:2fr 3fr;
+  gap:18px;
+}
+@media(max-width:800px){
+  .flex-intro{grid-template-columns:1fr;}
+}
+.intro-text{
+  font-size:14px;
+  line-height:1.9;
+  color:var(--text);
+}
+.intro-features{
+  background:#fff;
+  border-radius:12px;
+  padding:14px 16px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.04);
+}
+.intro-features h3{
+  font-size:15px;
+  margin-bottom:8px;
+}
+.intro-features h4{
+  font-size:14px;
+  margin:8px 0 4px;
+  color:var(--accent);
+}
+.intro-features ul{
+  font-size:13px;
+  line-height:1.8;
+  padding-left:18px;
+  color:var(--text);
+}
+
+/* 两位主角 */
+.players{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+@media(max-width:800px){
+  .players{grid-template-columns:1fr;}
+}
+.player-card{
+  background:#fff;
+  border-radius:12px;
+  padding:14px 16px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.06);
+  border:1px solid #ffd0dc;
+}
+.player-name{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.player-role{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.player-text{
+  font-size:13px;
+  line-height:1.9;
+}
+
+/* 混双时间线 */
+.timeline{
+  margin-top:4px;
+  padding-left:14px;
+  border-left:2px solid #ffc5d4;
+}
+.timeline-item{
+  position:relative;
+  padding-left:6px;
+  margin-bottom:6px;
+}
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-9px;
+  top:6px;
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:var(--accent);
+  box-shadow:0 0 0 4px rgba(255,75,107,0.15);
+}
+.timeline-year{
+  font-weight:600;
+  font-size:13px;
+}
+.timeline-text{
+  font-size:13px;
+  margin-left:4px;
+}
+
+/* “圆满组合”文字 */
+.combo-text{
+  font-size:14px;
+  line-height:1.8;
+  color:var(--text);
+}
+
+/* 新闻列表 */
+.news-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:6px;
+}
+.news-item{
+  background:#fff;
+  border-radius:10px;
+  padding:10px 12px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+.news-thumb{
+  width:90px;
+  height:60px;
+  border-radius:8px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.news-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.news-main-title{
+  font-size:14px;
+  margin-bottom:4px;
+}
+.news-meta{
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* 应援按钮区域 */
+.auth-area{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+.btn{
+  padding:7px 16px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-size:14px;
+}
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+}
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+}
+
+/* 页脚 */
+footer{
+  text-align:center;
+  padding:12px 0 18px;
+  font-size:12px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- 顶部：圆满横幅 -->
+  <header class="hero" id="top">
+    <div class="hero-left">
+      <div class="hero-title">圆满 · 林高远 & 王曼昱</div>
+      <div class="hero-sub">风雪压我两三年，我笑风轻雪如棉。</div>
+      <div class="hero-tags">
+        <span class="hero-tag">🏓 混双搭档</span>
+        <span class="hero-tag">💗 圆满时间线</span>
+        <span class="hero-tag">静态网页 · 个人应援</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="LGY.jpg" alt="Lin Gaoyuan">
+      <img src="WMY.jpg" alt="Wang Manyu">
+    </div>
+  </header>
+
+  <!-- 导航 -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <ul>
+        <li><a href="#top">首页</a></li>
+        <li><a href="#intro">圆满介绍</a></li>
+        <li><a href="#players">两人特点</a></li>
+        <li><a href="#honor">混双时间线</a></li>
+        <li><a href="#combo">圆满组合</a></li>
+        <li><a href="#news">圆满碎片</a></li>
+        <li><a href="#auth">应援墙</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 圆满介绍：简介 + 两人特点预告 -->
+    <section class="section" id="intro">
+      <div class="section-title">圆满介绍</div>
+      <div class="section-sub">这里是你对“圆满”的理解，也是这对组合在你心里的样子。</div>
+      <div class="flex-intro">
+        <div class="intro-text">
+          <p>
+            对我来说，「圆满」不是永远赢下所有比赛，而是经历起伏、经历风雪之后，还能站回到球台前，继续去相信、去拼。
+          </p>
+          <p>
+            林高远，是一次次跌倒后咬牙再上的那份倔强；王曼昱，是关键场稳住节奏、给人安心感的那份力量。
+            一个向前冲，一个稳住底线——当他们并肩站在同一侧球台时，就是我心里最接近“圆满”的画面。
+          </p>
+          <p>
+            这个页面只是一个小小的开始，想把他们一起走过的混双之路、重要比赛和你的心情，慢慢拼成一张完整的时间线。
+          </p>
+        </div>
+        <div class="intro-features">
+          <h3>两人小档案 · 简短版</h3>
+
+          <h4>林高远</h4>
+          <ul>
+            <li>中国男子乒乓球队运动员，细腻弧圈 + 多变线路见长。</li>
+            <li>进攻观赏性很高，状态好时爆发力拉满。</li>
+            <li>经历过很多起伏，但也正因为如此，那些“顶住了”的瞬间格外动人。</li>
+          </ul>
+
+          <h4>王曼昱</h4>
+          <ul>
+            <li>中国女子乒乓球队运动员，被很多人称作“大赛型选手”。</li>
+            <li>单打、双打、团体都很全面，防守反攻能力突出。</li>
+            <li>关键分、关键场常常稳住全队，是队友和球迷心里的“定心丸”。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 两人特点（单独展开） -->
+    <section class="section" id="players">
+      <div class="section-title">两人特点 · 展开一点</div>
+      <div class="section-sub">这一块可以慢慢加你自己的理解，比如你眼中的球风、性格、比赛气质等等。</div>
+
+      <div class="players">
+        <article class="player-card">
+          <div class="player-name">林高远</div>
+          <div class="player-role">球风细腻 · 线路多变</div>
+          <div class="player-text">
+            反手衔接流畅，台内处理细腻，发球变化也很多样。遇到困难的时候，也许会有犹豫、有起伏，
+            但每一次重新站出来，都是一种“还想再试一次”的勇气。
+          </div>
+        </article>
+
+        <article class="player-card">
+          <div class="player-name">王曼昱</div>
+          <div class="player-role">大赛型选手 · 稳中带狠</div>
+          <div class="player-text">
+            防守反攻能力很强，相持中一点点把对手“磨”到节奏紊乱。关键分敢出手，团体赛里常常承担
+            重要场次，是队友和教练非常信任的存在。
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 混双时间线：2018–2024 -->
+    <section class="section" id="honor">
+      <div class="section-title">圆满组合 · 混双时间线 2018–2024</div>
+      <div class="section-sub">按你给的图整理，把每一站比赛都记下来，像一本小小的战绩日记。</div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">2018.7</span>
+          <span class="timeline-text">韩国公开赛 · 八强</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2018.8</span>
+          <span class="timeline-text">四川成都亚运会热身赛 · 亚军</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2018.8</span>
+          <span class="timeline-text">雅加达亚运会 · 亚军</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2018.9</span>
+          <span class="timeline-text">辽宁鞍山全锦赛 · 亚军</span>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2019.7</span>
+          <span class="timeline-text">天津武清全锦赛 · 冠军</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2019.7</span>
+          <span class="timeline-text">瑞典公开赛 · 四强</span>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2020.1</span>
+          <span class="timeline-text">深圳地表最强12人 · 第一轮</span>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2021.11</span>
+          <span class="timeline-text">休斯敦世乒赛（抽签前10分钟拆对）</span>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2022.1</span>
+          <span class="timeline-text">WTT澳门冠军赛·中国之星 · 八强</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2022.11</span>
+          <span class="timeline-text">湖北黄石全锦赛 · 冠军</span>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2023.1</span>
+          <span class="timeline-text">卡塔尔德班世乒赛亚洲区预选赛</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2023.10</span>
+          <span class="timeline-text">WTT兰州球挑 · 八强</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2023.10</span>
+          <span class="timeline-text">江苏扬州全锦赛 · 四强</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2023.11</span>
+          <span class="timeline-text">WTT太原常挑 · 四强</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2023.12</span>
+          <span class="timeline-text">国际乒联成都混合团体世界杯 · 首场出场</span>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2024.1</span>
+          <span class="timeline-text">WTT多哈球挑 · 八强</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2024.1</span>
+          <span class="timeline-text">WTT多哈常挑 · 亚军</span>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:var(--muted);margin-top:8px;">
+        …… 后面如果还有新的比赛，你可以继续按同样格式往下加，把整条圆满时间线补完整。
+      </div>
+    </section>
+
+    <!-- 圆满组合故事 -->
+    <section class="section" id="combo">
+      <div class="section-title">圆满组合 · 小故事</div>
+      <div class="section-sub">这里可以写你最喜欢的一场混双、一个回合，或者某句让你记很久的话。</div>
+      <div class="combo-text">
+        <p>
+          有时候不是每一次都能站上最高的领奖台，但一起经历的那些球、那些起伏，会慢慢变成一种默契。
+         你可以在这里写下你眼中的“圆满瞬间”：某站比赛的逆转、某一分的神仙球，或者是赛后采访里特别戳你的那句话。
+        </p>
+        <p>
+          也可以把这一块当成小日记，记录你追赛时的心情：哪一天为了看直播熬夜，哪一场比赛结束后久久不想关掉回放。
+        </p>
+      </div>
+    </section>
+
+    <!-- 圆满碎片 / 新闻动态 -->
+    <section class="section" id="news">
+      <div class="section-title">圆满碎片 · 记录一点近况</div>
+      <div class="section-sub">完全由你自己更新的小区域，可以随便写近期的成绩、路透、采访等等。</div>
+
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-thumb">
+            <img src="https://via.placeholder.com/150x100/fc8ba2/ffffff?text=roundman" alt="">
+          </div>
+          <div>
+            <div class="news-main-title">示例：某站比赛结束后的心情记一下</div>
+            <div class="news-meta">时间：2025-01-01 · 标签：随手记录 · 圆满</div>
+            <div style="font-size:12px;margin-top:4px;color:var(--text);">
+              这里可以写：比分、对手、当时的状态，还有你作为观众 / 应援者的感受。
+              例如某场打得很艰难但还是笑着结束，或者某一次遗憾却让你更期待下一站。
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 应援墙（原注册/登录区） -->
+    <section class="section" id="auth">
+      <div class="section-title">圆满应援墙（装饰区）</div>
+      <div class="section-sub">静态页面本身没有真实留言功能，但可以先把这一块当作“想象中的应援按钮”。</div>
+      <p style="font-size:14px;color:var(--text);margin-bottom:10px;">
+        以后如果你想做真的留言功能，可以接在这个版块下面。现在可以先用这两个按钮当作象征：
+        一个是“写下一句圆满”，一个是“再看一遍这条时间线”。
+      </p>
+      <div class="auth-area">
+        <button class="btn btn-primary">写下一句圆满的话</button>
+        <button class="btn btn-outline">再看一遍比赛时间线</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    copyright © 圆满 · 林高远 & 王曼昱 · 个人静态应援页面（非官方）  
+  </footer>
+</div>
+
+</body>
+</html>
